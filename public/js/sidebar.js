@@ -64,15 +64,14 @@ $(document).ready(function () {
     function resizeCollapse(){
         if (window.innerWidth < 768) {
             sidebar.classList.toggle("close");
+            if (sidebar.classList.contains("close")) {
+                mainContent.classList.replace("contentText","contentTextBack");
+            } else {
+                mainContent.classList.replace("contentTextBack","contentText");
+            }        
         }
     }
     
-    if (sidebar.classList.contains("close")) {
-        mainContent.classList.replace("contentText","contentTextBack");
-    } else {
-        mainContent.classList.replace("contentTextBack","contentText");
-    }
-
     window.addEventListener("resize", resizeCollapse);
 
 });
