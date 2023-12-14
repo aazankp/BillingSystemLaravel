@@ -17,4 +17,6 @@ use Illuminate\Support\Facades\Route;
 //     return view('welcome');
 // });
 
-Route::view('/','Head.header');
+Route::view('/','dashboard')->name("dashboard");
+Route::view('/AddAccount','addAccount')->name("addAccount");
+Route::view('/test','test');
