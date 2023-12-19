@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\accountController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -18,5 +20,12 @@ use Illuminate\Support\Facades\Route;
 // });
 
 Route::view('/','dashboard')->name("dashboard");
-Route::view('/AddAccount','addAccount')->name("addAccount");
-Route::view('/test','test');
+Route::view('/AddAccount','Accounts')->name("addAccount");
+// Route::view('/ViewAccounts','Accounts')->name("viewAccount");
+
+Route::controller(accountController::class)->group(function(){
+    Route::post("/AddAccount", "insertAccounts")->name("add_account");
+    Route::get("/ViewAccounts", "fetchAccounts")->name("viewAccount");
+    Route::get("/UpdateAccount/{id}", "fetchUpdateAccount")->name("updateAccount");
+    Route::post("/UpdateAccount/{id}", "insertUpdatedAccount")->name("update_account");
+});

@@ -5,8 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"> -->
     <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/1.13.7/css/dataTables.bootstrap5.min.css" rel="stylesheet" />
+    <link href="https://cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" rel="stylesheet" />
     <link type="text/css" rel="stylesheet" href="{{ asset('css/sidebar.css') }}">
     <link type="text/css" rel="stylesheet" href="{{ asset('css/style.css') }}">
     <title>Billing System</title>
@@ -18,16 +20,13 @@
     <nav class="navbar">
         <div class="logo_item">
             <i class="bx bx-menu" id="sidebarOpen"></i>
-            <img src="images/logo.png" alt=""></i>CodingNepal
-        </div>
-        <div class="search_bar">
-            <input type="text" placeholder="Search" />
+            <img src="...">Billing System
         </div>
         <div class="navbar_content">
             <i class="bi bi-grid"></i>
             <i class='bx bx-sun' id="darkLight"></i>
             <i class='bx bx-bell'></i>
-            <img src="images/profile.jpg" alt="" class="profile" />
+            <img src="..." class="profile" />
         </div>
     </nav>
     <!-- sidebar -->
@@ -38,11 +37,11 @@
                 <!-- duplicate these li tag if you want to add or remove navlink only -->
                 <!-- Start -->
                 <li class="item">
-                    <a href="#" class="nav_link">
+                    <a href="{{ route('dashboard') }}" class="nav_link">
                         <span class="navlink_icon">
-                            <i class="bx bxs-magic-wand"></i>
+                            <i class='bx bx-home'></i>
                         </span>
-                        <span class="navlink">Magic build</span>
+                        <span class="navlink fw-bold">Dashboard</span>
                     </a>
                 </li>
                 <!-- End -->
@@ -54,14 +53,14 @@
                 <li class="item">
                     <div href="#" class="nav_link submenu_item">
                         <span class="navlink_icon">
-                            <i class="bx bx-home-alt"></i>
+                            <i class='bx bx-user-pin' ></i>
                         </span>
-                        <span class="navlink">Home</span>
+                        <span class="navlink fw-bold">Accounts</span>
                         <i class="bx bx-chevron-right arrow-left"></i>
                     </div>
                     <ul class="menu_items submenu">
-                        <a href="#" class="nav_link sublink">Nav Sub Link</a>
-                        <a href="#" class="nav_link sublink">Nav Sub Link</a>
+                        <a href="{{ route('addAccount') }}" class="nav_link sublink fw-bold">Add Account</a>
+                        <a href="{{ route('viewAccount') }}" class="nav_link sublink fw-bold">View Accounts</a>
                     </ul>
                 </li>
                 <!-- end -->
@@ -91,54 +90,24 @@
         </div>
     </div>
 
-    <!-- JavaScript -->
-
-
-    <!-- <nav class="navbar navbar-default no-margin">
-        <div class="navbar-header fixed-brand">
-            <button type="button" class="navbar-toggle collapsed microsoft" data-toggle="collapse" id="menu-toggle" style="float: inline-end;">
-                <span class="glyphicon glyphicon-th-large" aria-hidden="true"><i class="fa-brands fa-microsoft" style="font-size: 25px;"></i></span>
-            </button>
-            <a class="navbar-brand ms-1" href="#"><i class="fa fa-rocket fa-4"></i> M-33</a>
-        </div>
-        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-            <ul class="nav navbar-nav">
-                <li class="active">
-                    <button class="navbar-toggle collapse in" data-toggle="collapse" id="menu-toggle"> <span class="glyphicon glyphicon-th-large" aria-hidden="true"></span>
-                    </button>
-                </li>
-            </ul>
-        </div>
-    </nav>
-    <div id="wrapper">
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav nav-pills nav-stacked" id="menu">
-                <li class="active">
-                    <a href="{{ route('dashboard') }}"><span class="fa-stack fa-lg pull-left"><i class="fa fa-dashboard fa-stack-1x"></i></span> Dashboard</a>
-                </li>
-                <li>
-                    <a href="#"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-id-card fa-stack-1x"></i></span> Accounts</a>
-                    <ul class="nav-pills nav-stacked" style="list-style-type:none;">
-                        <li><a href="{{ route('addAccount') }}"><span class="fa-stack fa-lg pull-left"><i class="fa-solid fa-user-plus fa-stack-1x "></i></span>Add Account</a></li>
-                        <li><a href="#"><span class="fa-stack fa-lg pull-left" style="margin-left: -3px;"><i class="fa-solid fa-user fa-stack-1x "></i></span> View Accounts</a></li>
-                    </ul>
-                </li>
-            </ul>
-        </div>
-        <div id="page-content-wrapper">
-            <div class="container-fluid xyz">
-                <div class="row">
-                    <div class="col-lg-12">
-                        @yield("content")
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div> -->
-
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <!-- <script src="{{ asset('js/custom.js') }}"></script> -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <!-- DataTables JavaScript -->
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.13.7/js/dataTables.bootstrap5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/dataTables.buttons.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.bootstrap5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.1.1/js/buttons.html5.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.print.min.js"></script>
+    <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/dataTables.responsive.min.js"></script>
+    <script src="https://cdn.datatables.net/responsive/2.2.9/js/responsive.bootstrap5.min.js"></script>
+    <script src="{{ asset('js/custom.js') }}"></script>
     <script src="{{ asset('js/sidebar.js') }}"></script>
 </body>
 
